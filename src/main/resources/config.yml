@@ -1,0 +1,64 @@
+# GPFT - GriefPrevention Flag Toggle
+# Language settings: 'pt' for messages_pt.yml or 'en' for messages_en.yml
+language: 'en'
+prefix: '&8[&6GPFT&8] '
+
+# --- NOTIFICATION SETTINGS ---
+# Enabled: true/false
+# Type options: 'chat', 'actionbar', 'title', 'bossbar'
+# Stay_time: Time in seconds to show the message
+# Bossbar Colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW, GOLD
+# Bossbar Styles: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
+notifications:
+  enabled: true
+  type: 'title'
+  stay_time: 3
+  bossbar_color: 'GOLD'
+  bossbar_style: 'SOLID'
+
+# --- DATABASE SETTINGS ---
+# To use MySQL, set enabled to true. If false, local SQLite/YAML will be used.
+mysql:
+  enabled: false
+  host: 'localhost'
+  port: '3306'
+  database: 'minecraft'
+  username: 'root'
+  password: ''
+
+# NOTICE: To enable or disable specific modules globally for the entire server,
+# please edit the 'modules.yml' file. Settings below are for claim defaults only.
+
+flags:
+  monster_spawn: false
+  passive_spawn: true
+  leaf_decay: true
+  weather_lock: false
+  ice_form: false
+  liquid_flow: true
+  pvp: false
+  fire_spread: false
+  explosions: true
+  grass_spread: true
+  monster_damage: true
+  villager_trade: false
+  item_drop: false
+  ender_pearl: false
+  spawner_spawn: true
+  egg_spawn: true
+  kill_mobs: false
+  wooden_doors: false
+  iron_doors: false
+  open_chests: false
+  ender_chests: true
+  set_home: false
+  visitor_fly: false
+  buttons_levers: false
+  pressure_plates: false
+  pickup_items: false
+  lead_mobs: false
+  use_bows: false
+
+gui:
+  title: '&8Grief Prevention Flag Toggle'
+  fill_item: 'BLACK_STAINED_GLASS_PANE'

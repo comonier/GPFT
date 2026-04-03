@@ -1,0 +1,26 @@
+name: GPFT
+version: '${project.version}'
+main: com.comonier.gpft.Main
+api-version: '1.21'
+author: Comonier
+description: Griefprevention Flag Toggle - Manage claim flags via GUI.
+depend: [GriefPrevention]
+
+commands:
+  gpft:
+    description: Main command for GPFT.
+    usage: /gpft [help|reload]
+    aliases: [flag, flags]
+    permission: gpft.user
+    permission-message: §cYou do not have permission to use this command.
+
+permissions:
+  gpft.user:
+    description: Allows players to open the flag menu in their claims.
+    default: true
+  gpft.admin:
+    description: Allows reloading the plugin and managing any claim.
+    default: op
+  gpft.flag.*:
+    description: Access to all flags (if enabled in config).
+    default: true
