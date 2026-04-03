@@ -1,3 +1,5 @@
+// path: src/main/java/com/comonier/gpft/FlagEventsMovement.java
+
 package com.comonier.gpft;
 
 import me.ryanhamshire.GriefPrevention.Claim;
@@ -55,33 +57,44 @@ public class FlagEventsMovement implements Listener {
 
 		String ownerName = claim.getOwnerName();
 		boolean hasTrust = claim.allowAccess(player) == null;
-		String msgKey = hasTrust ? "entry_has_trust" : "entry_no_trust";
-		String rawMessage = plugin.getMsgRaw(msgKey).replace("{owner}", ownerName);
-		String type = plugin.getConfig().getString("notifications.type", "actionbar").toLowerCase();
+		
 		int seconds = plugin.getConfig().getInt("notifications.stay_time", 3);
 		int ticks = seconds * 20;
 
-		switch (type) {
-			case "chat":
-				player.sendMessage(plugin.getMsg(msgKey).replace("{owner}", ownerName));
-				break;
-			case "actionbar":
-				new BukkitRunnable() {
-					int count = 0;
-					@Override
-					public void run() {
-						if (count >= seconds || player.isOnline() == false) { this.cancel(); return; }
-						player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(rawMessage));
-						count++;
-					}
-				}.runTaskTimer(plugin, 0L, 20L);
-				break;
-			case "title":
-				player.sendTitle(rawMessage, "", 10, ticks, 10);
-				break;
-			case "bossbar":
-				showBossBar(player, rawMessage, (long) ticks);
-				break;
+		// 1. Lógica do CHAT
+		if (plugin.getConfig().getBoolean("notifications.use_chat", false)) {
+			String msgKey = hasTrust ? "entry_has_trust" : "entry_no_trust";
+			player.sendMessage(plugin.getMsg(msgKey).replace("{owner}", ownerName));
+		}
+
+		// 2. Lógica da ACTION BAR
+		if (plugin.getConfig().getBoolean("notifications.use_actionbar", true)) {
+			String msgKey = hasTrust ? "entry_has_trust" : "entry_no_trust";
+			String rawAction = plugin.getMsgRaw(msgKey).replace("{owner}", ownerName);
+			new BukkitRunnable() {
+				int count = 0;
+				@Override
+				public void run() {
+					if (count >= seconds || player.isOnline() == false) { this.cancel(); return; }
+					player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(rawAction));
+					count++;
+				}
+			}.runTaskTimer(plugin, 0L, 20L);
+		}
+
+		// 3. Lógica do TITLE (Macete: Nick no Title, Status no Subtitle)
+		if (plugin.getConfig().getBoolean("notifications.use_title", true)) {
+			String title = plugin.getMsgRaw("title_owner_nick").replace("{owner}", ownerName);
+			String subtitleKey = hasTrust ? "subtitle_has_trust" : "subtitle_no_trust";
+			String subtitle = plugin.getMsgRaw(subtitleKey);
+			player.sendTitle(title, subtitle, 10, ticks, 10);
+		}
+
+		// 4. Lógica da BOSS BAR
+		if (plugin.getConfig().getBoolean("notifications.use_bossbar", false)) {
+			String msgKey = hasTrust ? "entry_has_trust" : "entry_no_trust";
+			String rawBoss = plugin.getMsgRaw(msgKey).replace("{owner}", ownerName);
+			showBossBar(player, rawBoss, (long) ticks);
 		}
 	}
 

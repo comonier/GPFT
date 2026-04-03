@@ -1,3 +1,5 @@
+# path: src/main/resources/config.yml
+
 # GPFT - GriefPrevention Flag Toggle
 # Language settings: 'pt' for messages_pt.yml or 'en' for messages_en.yml
 language: 'en'
@@ -5,13 +7,15 @@ prefix: '&8[&6GPFT&8] '
 
 # --- NOTIFICATION SETTINGS ---
 # Enabled: true/false
-# Type options: 'chat', 'actionbar', 'title', 'bossbar'
-# Stay_time: Time in seconds to show the message
-# Bossbar Colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW, GOLD
-# Bossbar Styles: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
+# Individual notification toggles. You can enable multiple at once.
+# Customize the text and colors for each in your messages_en.yml or messages_pt.yml files.
+# Note: Action Bar colors are defined directly in the message string using '&' codes.
 notifications:
   enabled: true
-  type: 'title'
+  use_chat: false
+  use_actionbar: true
+  use_title: true
+  use_bossbar: false
   stay_time: 3
   bossbar_color: 'GOLD'
   bossbar_style: 'SOLID'

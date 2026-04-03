@@ -1,3 +1,5 @@
+# path: src/main/resources/messages_pt.yml
+
 # GPFT - Mensagens em Português
 prefix: '&8[&6GPFT&8] '
 
@@ -33,9 +35,9 @@ flag_explosions: 'Explosões'
 flag_grass_spread: 'Grama se Espalhar'
 flag_monster_damage: 'Dano de Monstros'
 flag_villager_trade: 'Troca com Villagers'
-flag_spawner_spawn: 'Spawn de Spawners'
-flag_ender_pearl: 'Uso de Ender Pearl'
 flag_item_drop: 'Dropar Itens'
+flag_ender_pearl: 'Uso de Ender Pearl'
+flag_spawner_spawn: 'Spawn de Spawners'
 flag_egg_spawn: 'Spawn por Ovos'
 flag_kill_mobs: 'Matar Mobs'
 flag_wooden_doors: 'Portas/Portões/Alçapões'
@@ -50,5 +52,13 @@ flag_pickup_items: 'Coletar Itens'
 flag_lead_mobs: 'Usar Laço em Mobs'
 flag_use_bows: 'Uso de Arcos'
 
-entry_has_trust: '&aTerreno de &e{owner}&a: Você tem trust aqui.'
-entry_no_trust: '&cTerreno de &e{owner}&c: Você não tem trust aqui.'
+# --- NOTIFICAÇÕES DE ENTRADA ---
+# Chat / Action Bar / BossBar (Linha única)
+entry_has_trust: '&a{owner} &f- &aVocê possui trust aqui.'
+entry_no_trust: '&c{owner} &f- &cVocê não possui trust aqui.'
+
+# Macete do Title (Título em cima, Subtítulo embaixo)
+# O Title usará apenas o nick do jogador {owner}
+title_owner_nick: '{owner}'
+subtitle_has_trust: '&aVocê possui trust neste terreno.'
+subtitle_no_trust: '&cVocê não possui trust neste terreno.'

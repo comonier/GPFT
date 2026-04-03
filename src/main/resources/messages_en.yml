@@ -1,3 +1,5 @@
+# path: src/main/resources/messages_en.yml
+
 # GPFT - English Messages
 prefix: '&8[&6GPFT&8] '
 
@@ -50,5 +52,13 @@ flag_pickup_items: 'Pickup Items'
 flag_lead_mobs: 'Use Leads on Mobs'
 flag_use_bows: 'Use Bows/Crossbows'
 
-entry_has_trust: '&a{owner}''s Claim: You have trust here.'
-entry_no_trust: '&c{owner}''s Claim: You do not have trust here.'
+# --- ENTRY NOTIFICATIONS ---
+# Chat / Action Bar / BossBar (Single line)
+entry_has_trust: '&a{owner} &f- &aYou have trust here.'
+entry_no_trust: '&c{owner} &f- &cYou do not have trust here.'
+
+# Title Macete (Title on top, Subtitle below)
+# The Title will only display the player's nick {owner}
+title_owner_nick: '{owner}'
+subtitle_has_trust: '&aYou have trust in this claim.'
+subtitle_no_trust: '&cYou do not have trust in this claim.'
