@@ -1,17 +1,49 @@
-# GPFT - GriefPrevention Flag Toggle
+# GPFT - GriefPrevention Flag Toggle (v1.3)
 
-**GPFT** is a robust Minecraft plugin (1.21+) that allows GriefPrevention claim owners to manage permissions (flags) intuitively through a GUI. It offers granular control over visitor interactions, environmental events, and entry notifications.
+**GPFT** is a powerful addon for the [GriefPrevention](https://github.com) plugin, allowing claim owners to manage protection flags through an intuitive Graphical User Interface (GUI).
+
+## 🚀 What's New in v1.3
+
+- **Per-Flag Permission System:** Now you can allow or block specific flags for player groups (e.g., VIPs can have access to `pvp` or `visitor_fly` while default players cannot).
+- **Flight Safety (Fly):** Implemented a 10-second countdown with screen alerts (Title/Subtitle) when leaving a claim or disabling the fly flag, preventing fall damage deaths.
+- **VIP Protection:** The plugin now detects the `essentials.fly` permission. If a player has flight enabled via Essentials/VIP systems, GPFT will not interfere.
+- **Spawn Logic Fixes:** Adjusted `Spawner Egg` and `Command` logic to allow administrators or server systems to spawn mobs even when the spawn flag is disabled.
+- **Damage Logic Fixes:** Full blocking of monster damage (including projectiles like skeleton arrows) when the `monster_damage` flag is disabled.
+
+## 🛠️ Commands and Permissions
+
+### Commands:
+- `/gpft` or `/flags` - Opens the flag management menu in the current claim.
+- `/gpft help` - Lists all available commands.
+- `/gpft reload` - Reloads configurations and translations (Admins only).
+
+### General Permissions:
+- `gpft.user` - Allows opening the flag menu (Default: Everyone).
+- `gpft.admin` - Allows `/gpft reload` and managing any claim (Default: OP).
+- `gpft.flag.*` - Grants access to all flags in the menu (Default: Everyone).
+
+### Individual Permissions (Examples):
+To block a specific flag for a group (e.g., using LuckPerms):
+- `/lp group default permission set gpft.flag.pvp false`
+- `/lp group vip permission set gpft.flag.visitor_fly true`
+
+## 📋 Manageable Flags (28 Total)
+The plugin includes flags for:
+- **Spawn:** Monsters, Animals, Spawners, and Eggs.
+- **Environment:** Liquid flow, explosions, fire spread, ice/snow formation, and grass spread.
+- **Interaction:** Opening chests, doors (wood/iron), buttons, levers, and villager trading.
+- **Player:** Bow usage, Ender Pearl, item drop/pickup, flight mode, and sethome.
+- **World:** Per-claim weather control and leaf decay.
+
+## ⚙️ Installation
+1. Ensure **GriefPrevention** is installed.
+2. Place `GPFT.jar` in your `plugins` folder.
+3. Restart your server.
+4. Configure messages and modules in `config.yml`, `modules.yml`, and `messages_en.yml`.
 
 ---
+Developed by **Comonier**.
 
-## 📌 Main Features
-
-*   **GUI Interface:** Interactive menu to toggle 28 different flags.
-*   **Module System:** Administrators can globally disable flags via `modules.yml`.
-*   **Dual Database:** Native support for **SQLite (local)** or **MySQL**.
-*   **Entry Notifications:** Customizable alerts (Chat, ActionBar, Title, or BossBar) when entering claims.
-*   **Weather Control:** Optional permanent "Sun" visual inside claims, even during global rain.
-*   **Advanced Security:** Real blocking of bow/crossbow fire, gate interactions, and villager trading for visitors.
 
 ---
 
@@ -59,17 +91,6 @@ The flags are categorized based on their impact on the claim environment and vis
 
 ---
 
-## 💻 Commands & Aliases
-
-
-| Command | Alias | Description | Permission |
-| :--- | :--- | :--- | :--- |
-| `/gpft` | `/flag`, `/flags` | Opens the flag management menu for the current claim. | `gpft.user` |
-| `/gpft help` | - | Displays the command list. | `gpft.user` |
-| `/gpft reload` | - | Reloads configs, messages, and modules. | `gpft.admin` |
-
----
-
 ## ⚙️ Configuration Example (`config.yml`)
 
 ```yaml
@@ -78,21 +99,26 @@ The flags are categorized based on their impact on the claim environment and vis
 language: 'en'
 prefix: '&8[&6GPFT&8] '
 
+# --- PERMISSION INFO ---
+# By default, all players have the permission 'gpft.flag.*' (set to true).
+# To block a specific flag for a group, use your permission plugin (e.g. LuckPerms)
+# to set the permission to false. Example: /lp group default permission set gpft.flag.pvp false
+# If a module is set to 'false' in modules.yml, only players with 'gpft.admin' or 
+# the specific flag permission can see/use it.
+
 # --- NOTIFICATION SETTINGS ---
 # Enabled: true/false
-# Type options: 'chat', 'actionbar', 'title', 'bossbar'
-# Stay_time: Time in seconds to show the message
-# Bossbar Colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW, GOLD
-# Bossbar Styles: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
 notifications:
   enabled: true
-  type: 'title'
+  use_chat: false
+  use_actionbar: true
+  use_title: true
+  use_bossbar: false
   stay_time: 3
   bossbar_color: 'GOLD'
   bossbar_style: 'SOLID'
 
 # --- DATABASE SETTINGS ---
-# To use MySQL, set enabled to true. If false, local SQLite/YAML will be used.
 mysql:
   enabled: false
   host: 'localhost'
@@ -121,7 +147,7 @@ flags:
   ender_pearl: false
   spawner_spawn: true
   egg_spawn: true
-  kill_mobs: false
+  kill_passive: false
   wooden_doors: false
   iron_doors: false
   open_chests: false
