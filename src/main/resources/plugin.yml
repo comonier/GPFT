@@ -1,0 +1,110 @@
+name: GPFT
+version: '${project.version}'
+main: com.comonier.gpft.Main
+api-version: '1.21'
+author: Comonier
+description: Griefprevention Flag Toggle - Manage claim flags via GUI.
+depend: [GriefPrevention]
+
+commands:
+  gpft:
+    description: Main command for GPFT.
+    usage: /gpft [help|reload]
+    aliases: [flag, flags]
+    permission: gpft.user
+    permission-message: §cYou do not have permission to use this command.
+
+permissions:
+  gpft.user:
+    description: Allows players to open the flag menu in their claims.
+    default: true
+  gpft.admin:
+    description: Allows reloading the plugin and managing any claim.
+    default: op
+  gpft.flag.*:
+    description: Access to all flags (if enabled in config).
+    default: true
+  gpft.flag.monster_spawn:
+    description: Permission for monster_spawn flag.
+    default: true
+  gpft.flag.passive_spawn:
+    description: Permission for passive_spawn flag.
+    default: true
+  gpft.flag.leaf_decay:
+    description: Permission for leaf_decay flag.
+    default: true
+  gpft.flag.weather_lock:
+    description: Permission for weather_lock flag.
+    default: true
+  gpft.flag.ice_form:
+    description: Permission for ice_form flag.
+    default: true
+  gpft.flag.liquid_flow:
+    description: Permission for liquid_flow flag.
+    default: true
+  gpft.flag.pvp:
+    description: Permission for pvp flag.
+    default: true
+  gpft.flag.fire_spread:
+    description: Permission for fire_spread flag.
+    default: true
+  gpft.flag.explosions:
+    description: Permission for explosions flag.
+    default: true
+  gpft.flag.grass_spread:
+    description: Permission for grass_spread flag.
+    default: true
+  gpft.flag.monster_damage:
+    description: Permission for monster_damage flag.
+    default: true
+  gpft.flag.villager_trade:
+    description: Permission for villager_trade flag.
+    default: true
+  gpft.flag.item_drop:
+    description: Permission for item_drop flag.
+    default: true
+  gpft.flag.ender_pearl:
+    description: Permission for ender_pearl flag.
+    default: true
+  gpft.flag.spawner_spawn:
+    description: Permission for spawner_spawn flag.
+    default: true
+  gpft.flag.egg_spawn:
+    description: Permission for egg_spawn flag.
+    default: true
+  gpft.flag.kill_passive:
+    description: Permission for kill_passive flag.
+    default: true
+  gpft.flag.wooden_doors:
+    description: Permission for wooden_doors flag.
+    default: true
+  gpft.flag.iron_doors:
+    description: Permission for iron_doors flag.
+    default: true
+  gpft.flag.open_chests:
+    description: Permission for open_chests flag.
+    default: true
+  gpft.flag.ender_chests:
+    description: Permission for ender_chests flag.
+    default: true
+  gpft.flag.set_home:
+    description: Permission for set_home flag.
+    default: true
+  gpft.flag.visitor_fly:
+    description: Permission for visitor_fly flag.
+    default: true
+  gpft.flag.buttons_levers:
+    description: Permission for buttons_levers flag.
+    default: true
+  gpft.flag.pressure_plates:
+    description: Permission for pressure_plates flag.
+    default: true
+  gpft.flag.pickup_items:
+    description: Permission for pickup_items flag.
+    default: true
+  gpft.flag.lead_mobs:
+    description: Permission for lead_mobs flag.
+    default: true
+  gpft.flag.use_bows:
+    description: Permission for use_bows flag.
+    default: true
