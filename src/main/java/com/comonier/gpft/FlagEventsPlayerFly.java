@@ -51,13 +51,27 @@ public class FlagEventsPlayerFly implements Listener {
         }
 
         boolean canFlyFlag = flagManager.getFlagState(claim, "visitor_fly");
+        // Mudança crítica: Usar allowBuild em vez de allowAccess para evitar falso positivo em Container/Access Trust
+        boolean hasBuildTrust = (null == claim.allowBuild(player, null));
 
-        if (canFlyFlag) {
+        if (canFlyFlag && hasBuildTrust) {
             stopFlyRemovalCountdown(player);
 
             if (false == player.getAllowFlight()) {
                 player.setAllowFlight(true);
                 player.setMetadata(FLY_META, new FixedMetadataValue(Main.getInstance(), true));
+                
+                // Delay de 1 segundo (20 ticks) para não colidir com o Title de entrada do terreno
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        if (player.isOnline() && player.hasMetadata(FLY_META)) {
+                            String titleOn = Main.getInstance().getMsgRaw("fly_on_title");
+                            String subtitleOn = Main.getInstance().getMsgRaw("fly_on_subtitle");
+                            player.sendTitle(titleOn, subtitleOn, 10, 40, 10);
+                        }
+                    }
+                }.runTaskLater(Main.getInstance(), 20L);
             }
         } else {
             if (player.hasMetadata(FLY_META)) {
@@ -83,7 +97,9 @@ public class FlagEventsPlayerFly implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onTeleport(PlayerTeleportEvent event) {
         if (PlayerTeleportEvent.TeleportCause.UNKNOWN == event.getCause()) return;
-        removeFlyInstant(event.getPlayer());
+        Player player = event.getPlayer();
+        if (player.hasPermission("essentials.fly") || player.hasPermission("gpft.admin")) return;
+        removeFlyInstant(player);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

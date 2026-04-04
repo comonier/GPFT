@@ -1,0 +1,35 @@
+# path: src/main/resources/modules.yml
+
+# GPFT - Global Modules Manager
+# Set to false to disable a flag globally. 
+# Disabled flags will appear as red glass panes in the GUI.
+
+modules:
+  monster_spawn: true
+  passive_spawn: true
+  leaf_decay: true
+  weather_lock: true
+  ice_form: true
+  liquid_flow: true
+  pvp: true
+  fire_spread: true
+  explosions: true
+  grass_spread: true
+  monster_damage: true
+  villager_trade: true
+  item_drop: true
+  ender_pearl: true
+  spawner_spawn: true
+  egg_spawn: true
+  kill_passive: true
+  wooden_doors: true
+  iron_doors: true
+  open_chests: true
+  ender_chests: true
+  set_home: true
+  visitor_fly: true
+  buttons_levers: true
+  pressure_plates: true
+  pickup_items: true
+  lead_mobs: true
+  use_bows: true

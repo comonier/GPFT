@@ -1,0 +1,15 @@
+E:\_\GPFT\src\main\java\com\comonier\gpft\CommandHandler.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEvents.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsCommands.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsEnvironment.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsMovement.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsPlayer.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsPlayerFly.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsSpawning.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsTrust.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagEventsWeather.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\FlagManager.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\GpftTabCompleter.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\Main.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\MenuListener.java
+E:\_\GPFT\src\main\java\com\comonier\gpft\MenuManager.java

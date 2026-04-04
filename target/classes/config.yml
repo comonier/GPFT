@@ -1,0 +1,69 @@
+# GPFT - GriefPrevention Flag Toggle
+# Language settings: 'pt' for messages_pt.yml or 'en' for messages_en.yml
+language: 'en'
+prefix: '&8[&6GPFT&8] '
+
+# --- PERMISSION INFO ---
+# By default, all players have the permission 'gpft.flag.*' (set to true).
+# To block a specific flag for a group, use your permission plugin (e.g. LuckPerms)
+# to set the permission to false. Example: /lp group default permission set gpft.flag.pvp false
+# If a module is set to 'false' in modules.yml, only players with 'gpft.admin' or 
+# the specific flag permission can see/use it.
+
+# --- NOTIFICATION SETTINGS ---
+# Enabled: true/false
+notifications:
+  enabled: true
+  use_chat: false
+  use_actionbar: true
+  use_title: true
+  use_bossbar: false
+  stay_time: 3
+  bossbar_color: 'GOLD'
+  bossbar_style: 'SOLID'
+
+# --- DATABASE SETTINGS ---
+mysql:
+  enabled: false
+  host: 'localhost'
+  port: '3306'
+  database: 'minecraft'
+  username: 'root'
+  password: ''
+
+# NOTICE: To enable or disable specific modules globally for the entire server,
+# please edit the 'modules.yml' file. Settings below are for claim defaults only.
+
+flags:
+  monster_spawn: false
+  passive_spawn: true
+  leaf_decay: true
+  weather_lock: false
+  ice_form: false
+  liquid_flow: true
+  pvp: false
+  fire_spread: false
+  explosions: true
+  grass_spread: true
+  monster_damage: true
+  villager_trade: false
+  item_drop: false
+  ender_pearl: false
+  spawner_spawn: true
+  egg_spawn: true
+  kill_passive: false
+  wooden_doors: false
+  iron_doors: false
+  open_chests: false
+  ender_chests: true
+  set_home: false
+  visitor_fly: false
+  buttons_levers: false
+  pressure_plates: false
+  pickup_items: false
+  lead_mobs: false
+  use_bows: false
+
+gui:
+  title: '&8Grief Prevention Flag Toggle'
+  fill_item: 'BLACK_STAINED_GLASS_PANE'
