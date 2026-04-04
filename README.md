@@ -1,14 +1,16 @@
-# GPFT - GriefPrevention Flag Toggle (v1.3)
+# GPFT - GriefPrevention Flag Toggle (v1.4)
 
-**GPFT** is a powerful addon for the [GriefPrevention](https://github.com) plugin, allowing claim owners to manage protection flags through an intuitive Graphical User Interface (GUI).
+**GPFT** is a powerful addon for the [GriefPrevention](https://www.spigotmc.org/resources/griefprevention.1884/) plugin, allowing claim owners to manage protection flags through an intuitive Graphical User Interface (GUI).
 
-## 🚀 What's New in v1.3
+## 🚀 What's New in v1.4
 
-- **Per-Flag Permission System:** Now you can allow or block specific flags for player groups (e.g., VIPs can have access to `pvp` or `visitor_fly` while default players cannot).
-- **Flight Safety (Fly):** Implemented a 10-second countdown with screen alerts (Title/Subtitle) when leaving a claim or disabling the fly flag, preventing fall damage deaths.
-- **VIP Protection:** The plugin now detects the `essentials.fly` permission. If a player has flight enabled via Essentials/VIP systems, GPFT will not interfere.
-- **Spawn Logic Fixes:** Adjusted `Spawner Egg` and `Command` logic to allow administrators or server systems to spawn mobs even when the spawn flag is disabled.
-- **Damage Logic Fixes:** Full blocking of monster damage (including projectiles like skeleton arrows) when the `monster_damage` flag is disabled.
+- **Smart Trust Logic:** Flight and entry notifications now strictly require **Builder Trust**. This prevents false positives in claims with public "Container Trust" (like server spawns).
+- **Smooth Title Priority:** Added a 1-second delay for the `FLY ON` alert. This ensures the claim entry message is displayed first, followed by the flight notification.
+- **Instant Flight Sync:** When the flight flag is toggled in the GUI, all eligible players inside the claim receive flight abilities immediately without needing to move.
+- **Flight Safety System:** 10-second countdown with visual alerts (Title/Subtitle) when leaving a claim or losing flight access to prevent fall damage.
+- **VIP & Admin Bypass:** Full compatibility with `essentials.fly`. GPFT will not interfere with flight for players who have permanent flight permissions.
+- **Combat & Spawn Fixes:** Fixed monster damage logic (including projectiles) and allowed admin-overridden mob spawning via eggs/commands.
+
 
 ## 🛠️ Commands and Permissions
 
