@@ -1,6 +1,14 @@
-# GPFT - GriefPrevention Flag Toggle (v1.4)
+# GPFT - GriefPrevention Flag Toggle (v1.5)
 
 **GPFT** is a powerful addon for the [GriefPrevention](https://www.spigotmc.org/resources/griefprevention.1884/) plugin, allowing claim owners to manage protection flags through an intuitive Graphical User Interface (GUI).
+
+
+## 🚀 What's New in v1.5
+
+- **Personalized Notification Toggles:** Players can now use `/gpft <action|screen|chat|boss> <on|off>` to choose which alerts they want to see when entering/leaving claims. Preferences are saved per player.
+- **Multilingual Support:** Added full official support for **Spanish (es)** and **Russian (ru)**, alongside English and Portuguese.
+- **Improved Localization System:** All system messages, including GUI statuses and help commands, are now fully handled by external language files for easier customization.
+- **Smart Command Arguments:** The notification toggle commands accept universal terms like `on/off`, `liga/desliga`, `si/no`, and `да/нет` to accommodate global players.
 
 ## 🚀 What's New in v1.4
 
