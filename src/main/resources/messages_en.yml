@@ -11,6 +11,7 @@ use_bow_denied: '&cBow usage is blocked in this claim.'
 
 help_header: '&6------ &eGPFT Command List &6------'
 help_gui: '&e/gpft &7- Opens the flag menu.'
+help_toggle: '&e/gpft <action|screen|chat|boss> <on|off> &7- Toggle notifications.'
 help_reload: '&e/gpft reload &7- Reloads the plugin.'
 help_footer: '&6--------------------------------------'
 
@@ -20,6 +21,11 @@ gui_status_off: '&cDisabled'
 gui_click_to_toggle: '&eClick to toggle state.'
 gui_module_disabled: '&cModule disabled by Administrator'
 
+# Notification toggle status
+msg_notification_toggle: '&fNotification &e{type} &fset to: {status}'
+status_enabled: '&aEnabled'
+status_disabled: '&cDisabled'
+
 # Fly Countdown
 fly_countdown_title: '&e{timer}'
 fly_countdown_subtitle: '&fYour fly will be removed in:'
@@ -28,7 +34,7 @@ fly_off_subtitle: '&cRemoving fly now.'
 fly_on_title: '&aFLY ON'
 fly_on_subtitle: '&fDouble jump to fly!'
 
-# Flags (28 Total)
+# Flags
 flag_monster_spawn: 'Monster Spawning'
 flag_passive_spawn: 'Animal Spawning'
 flag_leaf_decay: 'Leaf Decay'
@@ -41,9 +47,9 @@ flag_explosions: 'Explosions'
 flag_grass_spread: 'Grass Spread'
 flag_monster_damage: 'Monster Damage'
 flag_villager_trade: 'Villager Trading'
-flag_spawner_spawn: 'Spawner Spawning'
-flag_ender_pearl: 'Ender Pearl Usage'
 flag_item_drop: 'Drop Items'
+flag_ender_pearl: 'Ender Pearl Usage'
+flag_spawner_spawn: 'Spawner Spawning'
 flag_egg_spawn: 'Egg Spawning'
 flag_kill_passive: 'Kill Passive Mobs'
 flag_wooden_doors: 'Wood Doors/Gates/Traps'

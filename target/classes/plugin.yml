@@ -1,5 +1,5 @@
 name: GPFT
-version: '1.4'
+version: '1.5'
 main: com.comonier.gpft.Main
 api-version: '1.21'
 author: Comonier

@@ -17,14 +17,22 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
+		
+		// Inicialização de arquivos
 		saveDefaultConfig();
 		saveResource("modules.yml", false);
+		
+		// Garante que todos os arquivos de tradução existam na pasta do plugin
+		saveDefaultLanguages();
+		
+		// Carrega as configurações de idioma e módulos
 		loadLocalization();
 		loadModules();
 
 		this.flagManager = new FlagManager(this);
 		this.menuManager = new MenuManager(this, flagManager);
 
+		// Registro do Comando Principal
 		if (null != getCommand("gpft")) {
 			CommandHandler cmdHandler = new CommandHandler(this, flagManager, menuManager);
 			getCommand("gpft").setExecutor(cmdHandler);
@@ -46,19 +54,35 @@ public class Main extends JavaPlugin {
 		getLogger().info("GPFT v" + getDescription().getVersion() + " loaded successfully.");
 	}
 
-	public void loadLocalization() {
-		String lang = getConfig().getString("language", "pt");
-		File langFile = new File(getDataFolder(), "messages_" + lang + ".yml");
-		if (false == langFile.exists()) {
-			saveResource("messages_pt.yml", false);
-			saveResource("messages_en.yml", false);
+	/**
+	 * Garante que os arquivos de tradução padrão sejam criados na pasta do plugin
+	 */
+	private void saveDefaultLanguages() {
+		String[] langs = {"en", "pt", "es", "ru"};
+		for (String lang : langs) {
+			String fileName = "messages_" + lang + ".yml";
+			File file = new File(getDataFolder(), fileName);
+			if (!file.exists()) {
+				saveResource(fileName, false);
+			}
 		}
+	}
+
+	public void loadLocalization() {
+		String lang = getConfig().getString("language", "en");
+		File langFile = new File(getDataFolder(), "messages_" + lang + ".yml");
+		
+		// Fallback para inglês caso o arquivo configurado não exista
+		if (!langFile.exists()) {
+			langFile = new File(getDataFolder(), "messages_en.yml");
+		}
+		
 		this.langConfig = YamlConfiguration.loadConfiguration(langFile);
 	}
 
 	public void loadModules() {
 		File file = new File(getDataFolder(), "modules.yml");
-		if (false == file.exists()) {
+		if (!file.exists()) {
 			saveResource("modules.yml", false);
 		}
 		this.modulesConfig = YamlConfiguration.loadConfiguration(file);
@@ -66,7 +90,8 @@ public class Main extends JavaPlugin {
 
 	public String getMsg(String path) {
 		String message = langConfig.getString(path);
-		if (null == message) return "§c" + path;
+		if (null == message) return "§cMissing key: " + path;
+		
 		String prefix = langConfig.getString("prefix", "&8[&6GPFT&8] ").replace("&", "§");
 		return prefix + message.replace("&", "§");
 	}

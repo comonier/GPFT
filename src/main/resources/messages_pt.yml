@@ -1,4 +1,4 @@
-# GPFT - Portuguese Messages
+# GPFT - Mensagens em Português
 prefix: '&8[&6GPFT&8] '
 
 no_permission: '&cVocê não tem permissão para usar este comando.'
@@ -11,6 +11,7 @@ use_bow_denied: '&cUso de arco bloqueado neste terreno.'
 
 help_header: '&6------ &eLista de Comandos GPFT &6------'
 help_gui: '&e/gpft &7- Abre o menu de flags do terreno atual.'
+help_toggle: '&e/gpft <action|screen|chat|boss> <liga|desliga> &7- Alternar avisos.'
 help_reload: '&e/gpft reload &7- Recarrega as configurações.'
 help_footer: '&6--------------------------------------'
 
@@ -20,6 +21,11 @@ gui_status_off: '&cDesativado'
 gui_click_to_toggle: '&eClique para alterar o estado.'
 gui_module_disabled: '&cModulo desativado pelo Administrador'
 
+# Status do toggle de notificações
+msg_notification_toggle: '&fNotificação &e{type} &falterada para: {status}'
+status_enabled: '&aLigada'
+status_disabled: '&cDesligada'
+
 # Fly Countdown
 fly_countdown_title: '&e{timer}'
 fly_countdown_subtitle: '&fSeu fly será removido em:'
@@ -28,7 +34,7 @@ fly_off_subtitle: '&cRemovendo fly agora.'
 fly_on_title: '&aFLY ON'
 fly_on_subtitle: '&fPule 2 vezes para voar!'
 
-# Flags (28 Total)
+# Flags
 flag_monster_spawn: 'Spawn de Monstros'
 flag_passive_spawn: 'Spawn de Animais'
 flag_leaf_decay: 'Folhas Caírem'
@@ -58,7 +64,7 @@ flag_pickup_items: 'Coletar Itens'
 flag_lead_mobs: 'Usar Laço em Mobs'
 flag_use_bows: 'Uso de Arcos'
 
-# --- ENTRY NOTIFICATIONS ---
+# --- NOTIFICAÇÕES DE ENTRADA ---
 entry_has_trust: '&a{owner} &f- &aVocê possui trust aqui.'
 entry_no_trust: '&c{owner} &f- &cVocê não possui trust aqui.'
 title_owner_nick: '{owner}'

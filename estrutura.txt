@@ -1,0 +1,22 @@
+Listagem de caminhos de pasta
+O n£mero de s‚rie do volume ‚ 44E2-1797
+C:.
+|   .gitignore
+|   estrutura.txt
+|   pom.xml
+|   README.md
+|   
+\---src
+    \---main
+        +---java
+        |   \---com
+        |       \---comonier
+        |           \---gpft
+        |                   Main.java
+        |                   
+        \---resources
+                config.yml
+                messages_en.yml
+                messages_pt.yml
+                plugin.yml
+                
